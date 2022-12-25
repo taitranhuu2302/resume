@@ -1,16 +1,18 @@
-import { MdOutlineArrowRight } from "react-icons/md";
-import { AnimationOnScroll } from "react-animation-on-scroll";
+import { MdOutlineArrowRight } from 'react-icons/md';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { useTranslation } from 'react-i18next';
+import React from 'react';
 
-const About = () => {
+const About = React.forwardRef<HTMLDivElement>((props,ref) => {
+  const {t} = useTranslation();
+  
   return (
-    <div id="about" className="container-ct">
+    <div ref={ref} id="about" className="container-ct">
       <div className="section-header">
         <AnimationOnScroll animateIn="animate__zoomIn">
-          <h2 className="section-title">Về Tôi</h2>
+          <h2 className="section-title">{t('about')}</h2>
           <p className="text-center paragraph px-5">
-            "Bạn không cần phải là một thiên tài, hay một người có tầm nhìn, hay thậm chí tốt nghiệp
-            đại học để thành công. Bạn chỉ cần có nền tảng và ước mơ" -{" "}
-            <span className="font-semibold">Michael Dell</span>
+            {t('michael_dell')}
           </p>
         </AnimationOnScroll>
       </div>
@@ -28,36 +30,33 @@ const About = () => {
           <div className="flex-grow">
             <h3 className="section-sub-title">Web Developer ( Front-end ) </h3>
             <div className="grid grid-cols-2 gap-5 my-5">
-              <Info name={"Họ và tên"} value={"Trần Hữu Tài"} />
-              <Info name={"Ngày sinh"} value={"23/02/2002"} />
-              <Info name={"Số Điện thoại"} value={"0931983495"} />
-              <Info name={"Email"} value={"tai.tranhuu2002@gmail.com"} />
-              <Info name={"Thành phố"} value={"Thành phố Huế"} />
-              <Info name={"Quốc gia"} value={"Việt Nam"} />
+              <Info name={t('full_name')} value={'Trần Hữu Tài'}/>
+              <Info name={t('dob')} value={'23/02/2002'}/>
+              <Info name={t('phone_number')} value={'0931983495'}/>
+              <Info name={t('email')} value={'tai.tranhuu2002@gmail.com'}/>
+              <Info name={t('city')} value={'Thành phố Huế'}/>
+              <Info name={t('nation')} value={'Việt Nam'}/>
             </div>
             <p className="text-justify paragraph">
-              Tôi là một lập trình viên front-end web developer, đang học tập và làm việc tại Thành
-              phố Huế. Tôi là một người làm việc theo nhóm, luôn sẵn sàng giúp đỡ và tôi tự tin vào
-              khả năng đóng góp của mình cho bất kỳ dự án nào. Tôi đang tìm kiếm cơ hội sử dụng các
-              kỹ năng và kinh nghiệm của mình để tạo ra tác động tích cực trên web và tôi trong hành
-              trình trở thành Fullstack Developer
+              {t('about_description')}
             </p>
           </div>
         </AnimationOnScroll>
       </div>
     </div>
   );
-};
+  
+})
 
 type InfoType = {
   name: string;
   value: string;
 };
 
-const Info = ({ name, value }: InfoType) => {
+const Info = ({name, value}: InfoType) => {
   return (
     <div className="flex items-center flex-nowrap gap-1">
-      <MdOutlineArrowRight className="text-primary min-w-[15px] min-h-[15px]" />
+      <MdOutlineArrowRight className="text-primary min-w-[15px] min-h-[15px]"/>
       <p>
         <span className="font-bold text-color">{name}</span>: <span>{value}</span>
       </p>

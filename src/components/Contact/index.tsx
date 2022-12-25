@@ -1,56 +1,64 @@
-import React, { useState } from "react";
-import { AnimationOnScroll } from "react-animation-on-scroll";
-import { IoLocationOutline } from "react-icons/io5";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsPhone } from "react-icons/bs";
+import React, { useState } from 'react';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { IoLocationOutline } from 'react-icons/io5';
+import { HiOutlineMail } from 'react-icons/hi';
+import { BsPhone } from 'react-icons/bs';
+import { useTranslation } from 'react-i18next';
 
-const Contact = () => {
+const Contact = React.forwardRef<HTMLDivElement>((props, ref) => {
+  const {t} = useTranslation();
   const [mailContent, setMailContent] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
-
+  
   const onChangeInputContact = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setMailContent({
       ...mailContent,
       [e.target.name]: e.target.value,
     });
   };
-
+  
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const body = `The email was sent from ${mailContent.email} with the content: ${mailContent.message}`;
     window.location.href = `mailto:tai.tranhuu2002@gmail.com?subject=${mailContent.subject}&body=${body}`;
+    setMailContent({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    })
   };
-
+  
   return (
-    <div className="container-ct">
+    <div ref={ref} className="container-ct">
       <div className="section-header">
         <AnimationOnScroll animateIn="animate__zoomIn">
-          <h2 className="section-title">Liên hệ</h2>
+          <h2 className="section-title">{t('contact')}</h2>
         </AnimationOnScroll>
       </div>
-      <div className="grid grid-cols-12">
-        <div className="col-span-4 flex flex-col gap-5">
+      <div className="grid grid-cols-12 gap-5">
+        <div className="col-span-12 order-last lg:order-none lg:col-span-4 flex flex-col gap-5">
           <IconContact
-            Icon={<IoLocationOutline size={20} className={"text-primary"} />}
-            name="Địa chỉ"
+            Icon={<IoLocationOutline size={20} className={'text-primary'}/>}
+            name={t('address')}
             value="Thành phố Huế, Việt Nam"
           />
           <IconContact
-            Icon={<HiOutlineMail size={20} className={"text-primary"} />}
+            Icon={<HiOutlineMail size={20} className={'text-primary'}/>}
             name="Email"
             value="tai.tranhuu2002@gmail.com"
           />
           <IconContact
-            Icon={<BsPhone size={20} className={"text-primary"} />}
-            name="Call"
+            Icon={<BsPhone size={20} className={'text-primary'}/>}
+            name={t('phone_number')}
             value="0931983495"
           />
         </div>
-        <form onSubmit={onSubmit} className="col-span-8 grid grid-cols-12 gap-5 h-fit">
+        <form onSubmit={onSubmit} className="col-span-12 lg:col-span-8 grid grid-cols-12 gap-5 h-fit">
           <div className="col-span-6">
             <input
               required
@@ -96,14 +104,15 @@ const Contact = () => {
               type="submit"
               className="bg-primary py-[10px] px-[35px] text-center text-white rounded-[50px]"
             >
-              Send Message
+              {t('send_message')}
             </button>
           </div>
         </form>
       </div>
     </div>
   );
-};
+  
+});
 
 type IconContactType = {
   Icon: React.ReactNode;
@@ -111,7 +120,7 @@ type IconContactType = {
   value: string;
 };
 
-const IconContact = ({ Icon, name, value }: IconContactType) => {
+const IconContact = ({Icon, name, value}: IconContactType) => {
   return (
     <div className="flex items-center gap-4">
       <div className="bg-[#eef7ff] w-fit p-3 rounded-full flex items-center justify-center min-w-[44px] min-h-[44px]">

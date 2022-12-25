@@ -1,24 +1,64 @@
-import React from "react";
-import { BiBookContent, BiHome, BiUser } from "react-icons/bi";
-import { AiOutlineFile, AiOutlineMail } from "react-icons/ai";
-import { GiSkills } from "react-icons/gi";
+import React, { useState } from 'react';
+import { BiBookContent, BiHome, BiUser } from 'react-icons/bi';
+import { AiOutlineFile, AiOutlineMail } from 'react-icons/ai';
+import { GiSkills } from 'react-icons/gi';
+import { MdLanguage } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
+import { LANGUAGES } from '../../constants';
+import i18next from 'i18next';
 
-const Navbar = () => {
+interface IState {
+  scrollTo: (type: NavigationType) => void;
+  activeTab: NavigationType
+}
+
+const Navbar: React.FC<IState> = ({scrollTo, activeTab}) => {
+  const {t} = useTranslation();
+  const [openLanguage, setOpenLanguage] = useState(false);
+  
   return (
     <div className="fixed hidden md:flex z-[999] top-1/2 -translate-y-1/2 left-5 flex-col gap-2.5">
-      <ButtonNav Icon={<BiHome className="min-w-[25px] min-h-[25px]" />} text={"Home"} />
-      <ButtonNav Icon={<BiUser className="min-w-[25px] min-h-[25px]" />} text={"About"} />
-      <ButtonNav Icon={<GiSkills className="min-w-[25px] min-h-[25px]" />} text={"Skills"} />
+      <ButtonNav  onClick={() => scrollTo('Home')} Icon={<BiHome className="min-w-[25px] min-h-[25px]"/>} text={t('home')}/>
+      <ButtonNav  onClick={() => scrollTo('About')} Icon={<BiUser className="min-w-[25px] min-h-[25px]"/>} text={t('about')}/>
+      <ButtonNav  onClick={() => scrollTo('LanguageTools')} Icon={<GiSkills className="min-w-[25px] min-h-[25px]"/>} text={t('language_tools')}/>
       <ButtonNav
-        href="/CV-Tran-Huu-Tai.pdf"
-        Icon={<AiOutlineFile className="min-w-[25px] min-h-[25px]" />}
-        text={"Resume"}
+        onClick={() => window.location.href = '/CV-Tran-Huu-Tai.pdf'}
+        Icon={<AiOutlineFile className="min-w-[25px] min-h-[25px]"/>}
+        text={`Resume ( ${t('download')} )`}
       />
       <ButtonNav
-        Icon={<BiBookContent className="min-w-[25px] min-h-[25px]" />}
-        text={"Portfolio"}
+        Icon={<BiBookContent className="min-w-[25px] min-h-[25px]"/>}
+        onClick={() => scrollTo('Portfolio')}
+        text={t('portfolio')}
       />
-      <ButtonNav Icon={<AiOutlineMail className="min-w-[25px] min-h-[25px]" />} text={"Contact"} />
+      <ButtonNav
+        Icon={<AiOutlineMail className="min-w-[25px] min-h-[25px]"/>}
+        onClick={() => scrollTo('Contact')}
+        text={t('contact')}
+      />
+      <div className={'relative'}>
+        <button onClick={() => setOpenLanguage(e => !e)}
+                className={`${openLanguage ? 'bg-primary text-white' : 'bg-light-100 text-secondary'} p-4 rounded-full flex items-center overflow-hidden gap-4
+      w-[56px] h-[56px] justify-start hover:bg-primary transition-all duration-300 hover:text-white font-semibold`}>
+          <MdLanguage className="min-w-[25px] min-h-[25px]"/>
+        </button>
+        <div className={`menu ${openLanguage ? 'active' : ''}`}>
+          {
+            LANGUAGES.map(({code, name, country_code}) => {
+              return (
+                <button onClick={async () => {
+                  await i18next.changeLanguage(code);
+                  setOpenLanguage(false);
+                }} key={country_code}
+                        className={'text-left flex items-center gap-2 p-2 hover:bg-primary hover:text-white rounded'}>
+                  <span className={`fi fi-${country_code}`}></span>
+                  {name}
+                </button>
+              );
+            })
+          }
+        </div>
+      </div>
     </div>
   );
 };
@@ -27,20 +67,20 @@ type ButtonNavType = {
   Icon: React.ReactNode;
   text: string;
   active?: boolean;
-  href?: string;
+  onClick?: () => void;
 };
 
-const ButtonNav = ({ Icon, text, active, href }: ButtonNavType) => {
+const ButtonNav = ({Icon, text, active, onClick}: ButtonNavType) => {
   return (
-    <a
-      href={href ? href : "/"}
+    <button
+      onClick={onClick}
       className={`${
-        active ? "bg-primary" : "bg-light-100"
+        active ? 'bg-primary text-white' : 'bg-light-100 text-secondary'
       } p-4 rounded-full flex items-center overflow-hidden gap-4
-      w-[56px] hover:w-full h-[56px] justify-start text-secondary hover:bg-primary transition-all duration-300 hover:text-white font-semibold`}
+      w-[56px] hover:w-full h-[56px] justify-start hover:bg-primary transition-all duration-300 hover:text-white font-semibold`}
     >
-      {Icon} <span>{text}</span>
-    </a>
+      {Icon} <span className={'whitespace-nowrap'}>{text}</span>
+    </button>
   );
 };
 

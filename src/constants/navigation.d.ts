@@ -1,0 +1,1 @@
+type NavigationType = 'Home' | 'About' | 'LanguageTools' | 'Portfolio' | 'Contact';

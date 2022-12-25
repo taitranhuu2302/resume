@@ -91,3 +91,32 @@ html {
   line-height: 24px;
   @extend .font-open-sans;
 }
+
+.menu {
+  position: absolute;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 1.9px 1.1px 1.6px rgba(0, 0, 0, 0.013),
+  4.4px 2.6px 3.6px rgba(0, 0, 0, 0.019),
+  7.9px 4.6px 6.5px rgba(0, 0, 0, 0.023),
+  13.2px 7.7px 10.8px rgba(0, 0, 0, 0.027),
+  21.7px 12.7px 17.7px rgba(0, 0, 0, 0.031),
+  37.9px 22.2px 31px rgba(0, 0, 0, 0.037),
+  82px 48px 67px rgba(0, 0, 0, 0.05);
+  border: 1px solid #dddddd;
+  left: 120%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .3s;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transition: all .3s;
+  }
+}
