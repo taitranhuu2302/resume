@@ -3,13 +3,14 @@ import './styles.scss';
 import { AnimationOnScroll } from 'react-animation-on-scroll/dist/js/components';
 import { useTranslation } from 'react-i18next';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { GALLERY_IMAGES } from '../../constants';
+import { GALLERY_IMAGES, GalleryType } from '../../constants';
 import { FiLink } from 'react-icons/fi';
 import ModalPortfolio from '../ModalPortfolio';
 
 const Portfolio = React.forwardRef<HTMLDivElement>((props, ref) => {
   const [open, setOpen] = useState(false);
   const {t} = useTranslation();
+  const [dataModal, setDataModal] = useState<GalleryType | null>(null);
   return <div ref={ref} className={'container-ct'}>
     <div className="section-header">
       <AnimationOnScroll animateIn="animate__zoomIn">
@@ -19,10 +20,9 @@ const Portfolio = React.forwardRef<HTMLDivElement>((props, ref) => {
     <div>
       <ResponsiveMasonry>
         <Masonry columnsCount={3} gutter={'10px'}>
-          {GALLERY_IMAGES.map((image, i) => (
-            <div className={'gallery-item'}>
+          {GALLERY_IMAGES.map((image , i) => (
+            <div key={image.name} className={'gallery-item'}>
               <img
-                key={i}
                 src={image.bgCover}
                 style={{width: '100%', display: 'block'}}
                 alt={''}
@@ -30,7 +30,10 @@ const Portfolio = React.forwardRef<HTMLDivElement>((props, ref) => {
               />
               <div className={'gallery-item-overlay'}>
                 <p className={'font-semibold'}>{image.name}</p>
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => {
+                  setOpen(true)
+                  setDataModal(image)
+                }}>
                   <FiLink size={22}/>
                 </button>
               </div>
@@ -38,7 +41,7 @@ const Portfolio = React.forwardRef<HTMLDivElement>((props, ref) => {
           ))}
         </Masonry>
       </ResponsiveMasonry>
-      <ModalPortfolio open={open} onClose={() => setOpen(false)}/>
+      {dataModal && (<ModalPortfolio open={open} data={dataModal} onClose={() => setOpen(false)}/>)}
     </div>
   </div>;
 });

@@ -9,6 +9,9 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import Loading from './components/Loading';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -36,6 +39,7 @@ root.render(
   <Suspense fallback={<Loading/>}>
     <React.StrictMode>
       <App/>
+      <ToastContainer />
     </React.StrictMode>
   </Suspense>
 );

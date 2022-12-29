@@ -19,5 +19,8 @@
   "address": "Address",
   "send_message": "Send Message",
   "language": "Language",
-  "download": "Download"
+  "download": "Download",
+  "project_info": "Project Information",
+  "description": "Description",
+  "notify_change_language": "Language changed"
 }

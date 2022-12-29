@@ -19,5 +19,8 @@
   "address": "Địa chỉ",
   "send_message": "Gửi",
   "language": "Ngôn ngữ",
-  "download": "Tải về"
+  "download": "Tải về",
+  "project_info": "Thông tin dự án",
+  "description": "Mô tả",
+  "notify_change_language": "Thay đổi ngôn ngữ thành công"
 }

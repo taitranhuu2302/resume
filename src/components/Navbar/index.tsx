@@ -6,6 +6,8 @@ import { MdLanguage } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 import { LANGUAGES } from '../../constants';
 import i18next from 'i18next';
+import Cookies from 'js-cookie'
+import { toast } from 'react-toastify';
 
 interface IState {
   scrollTo: (type: NavigationType) => void;
@@ -15,6 +17,21 @@ interface IState {
 const Navbar: React.FC<IState> = ({scrollTo, activeTab}) => {
   const {t} = useTranslation();
   const [openLanguage, setOpenLanguage] = useState(false);
+  const currentLanguageCode = Cookies.get('i18next') || 'en';
+  const currentLanguage = LANGUAGES.find(l => l.code === currentLanguageCode);
+  
+  const onShowToast = (msg: string) => {
+    toast.success(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
   
   return (
     <div className="fixed hidden md:flex z-[999] top-1/2 -translate-y-1/2 left-5 flex-col gap-2.5">
@@ -48,9 +65,10 @@ const Navbar: React.FC<IState> = ({scrollTo, activeTab}) => {
               return (
                 <button onClick={async () => {
                   await i18next.changeLanguage(code);
+                  onShowToast(t('notify_change_language'));
                   setOpenLanguage(false);
                 }} key={country_code}
-                        className={'text-left flex items-center gap-2 p-2 hover:bg-primary hover:text-white rounded'}>
+                        className={`${currentLanguage?.code === code ? 'bg-primary text-white' : ''} text-left flex items-center gap-2 p-2 hover:bg-primary hover:text-white rounded`}>
                   <span className={`fi fi-${country_code}`}></span>
                   {name}
                 </button>

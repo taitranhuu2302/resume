@@ -146,6 +146,7 @@ html {
     display: flex;
     flex-direction: column;
     height: calc(100% - 40px);
+    max-height: calc(100% - 40px);
 
     .modal-header {
       padding: 10px 20px;
