@@ -39,7 +39,7 @@ const Navbar: React.FC<IState> = ({scrollTo, activeTab}) => {
       <ButtonNav  onClick={() => scrollTo('About')} Icon={<BiUser className="min-w-[25px] min-h-[25px]"/>} text={t('about')}/>
       <ButtonNav  onClick={() => scrollTo('LanguageTools')} Icon={<GiSkills className="min-w-[25px] min-h-[25px]"/>} text={t('language_tools')}/>
       <ButtonNav
-        onClick={() => window.location.href = '/CV-Tran-Huu-Tai.pdf'}
+        onClick={() => window.location.href = '/CV_TRAN_HUU_TAI.pdf'}
         Icon={<AiOutlineFile className="min-w-[25px] min-h-[25px]"/>}
         text={`Resume ( ${t('download')} )`}
       />
