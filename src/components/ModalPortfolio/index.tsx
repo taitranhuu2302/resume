@@ -7,6 +7,7 @@ import { Navigation } from 'swiper';
 import { GalleryType } from '../../constants';
 import Fancybox from '../Fancybox';
 import { useTranslation } from 'react-i18next';
+import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
 
 interface IModal {
   open: boolean;
@@ -36,10 +37,10 @@ const Modal: React.FC<IModal> = ({open, onClose, data}) => {
                             <img src={item} alt="" className={'w-full h-[400px] object-contain'}/>
                           </button>
                         </SwiperSlide>
-                      )
+                      );
                     })
                   }
-  
+                
                 </Swiper>
               </Fancybox>
             </div>
@@ -48,8 +49,21 @@ const Modal: React.FC<IModal> = ({open, onClose, data}) => {
               <hr className={'my-2.5'}/>
               <ul className={'flex flex-col gap-2.5'}>
                 <li><span className={'font-bold'}>Client</span>: {data.client}</li>
-                <li><span className={'font-bold'}>Project URL</span>: <a href={data.projectLink} target={'_blank'} className={'text-blue-500 hover:underline'} rel="noreferrer">{data.projectLink}</a></li>
-                <li><span className={'font-bold'}>Github</span>: <a href={data.github} target={'_blank'} className={'text-blue-500 hover:underline'} rel="noreferrer">{data.github}</a></li>
+                <li><span className={'font-bold'}>Technology</span>: {data.technology}</li>
+                <li><span className={'font-bold'}>Position</span>: {data.position}</li>
+                <li><span className={'font-bold'}>Project URL</span>:
+                  <a href={data.projectLink} target={'_blank'} className={'text-blue-500 hover:underline'}
+                     rel="noreferrer">{data.projectLink}</a></li>
+                <li className={'flex items-start gap-2.5'}><span className={'font-bold'}>Github:</span> {data.github ?
+                  <a href={data.github} target={'_blank'} className={'text-blue-500 hover:underline'}
+                     rel="noreferrer">{data.github}</a> :
+                  <div className={'flex items-center gap-1'}>
+                    <RiGitRepositoryPrivateLine/>
+                    <span className={'font-semibold'}>
+                      Private
+                    </span>
+                  </div>
+                }</li>
               </ul>
               <hr className={'my-2.5'}/>
               <div>

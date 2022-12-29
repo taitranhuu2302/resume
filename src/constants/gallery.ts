@@ -5,17 +5,21 @@ export type GalleryType = {
   client: string,
   projectLink: string,
   github: string,
-  description: string
+  description: string,
+  position: string;
+  technology: string;
 }
 
 export const GALLERY_IMAGES: GalleryType[] = [
   {
     name: 'Ecommerce Aorus Clone',
     bgCover: '/assets/images/gallery/aorus.jfif',
-    client: 'Aorus Clone',
+    technology: 'React, Redux',
+    client: 'Aorus',
     projectLink: 'https://react-app-c62a7.web.app/',
     github: 'https://github.com/taitranhuu1908/ReactNew',
-    description: '',
+    description: 'Website bán hàng sử dụng ReactJS, Redux và API xử dụng json-server',
+    position: 'Front End',
     gallery: [
       '/assets/images/aorus/home.png',
       '/assets/images/aorus/detail.png',
@@ -27,10 +31,12 @@ export const GALLERY_IMAGES: GalleryType[] = [
   {
     name: 'Ecommerce Smartphone',
     bgCover: '/assets/images/gallery/smartphone.png',
+    technology: 'HTML, CSS, Javascript, Bootstrap',
     client: 'TonyCong Store',
     projectLink: 'https://taitranhuu1908.github.io/huutai-tokyo/',
     github: 'https://github.com/taitranhuu1908/huutai-tokyo',
-    description: '',
+    description: 'Website bán hàng sử dụng HTML, CSS, Javascript, Bootstrap',
+    position: 'Front End',
     gallery: [
       '/assets/images/bootstrap/home.png',
       '/assets/images/bootstrap/detail.png',
@@ -42,10 +48,12 @@ export const GALLERY_IMAGES: GalleryType[] = [
   {
     name: 'Chat App',
     bgCover: '/assets/images/gallery/chat-app.png',
+    technology: 'Laravel, Pusher, Jquery',
     client: 'Soho',
     projectLink: '',
     github: 'https://github.com/taitranhuu1908/chat-laravel',
-    description: '',
+    description: 'Webiste chat app có các chức năng như thêm bạn bè, tạo group, tạo công việc, nhắn tin,...',
+    position: 'Front End & Backend',
     gallery: [
       '/assets/images/laravel-chat/1.png',
       '/assets/images/laravel-chat/2.png',
@@ -57,14 +65,12 @@ export const GALLERY_IMAGES: GalleryType[] = [
   {
     name: 'Pidol',
     bgCover: '/assets/images/gallery/pidol.png',
-    client: 'Pidol',
+    technology: 'NextJS, Redux, ReactQuery, NestJS, Metamask',
+    client: 'Individual',
     projectLink: 'https://testnet.pidol.io/',
     github: '',
-    description: 'Pidol is a live-streaming platform with video on demand (VOD) clipping and posting functions where ALL OF THE SUPPORT AND DONATION from communities and fans go to their favorite content creators and idols without any fee!\n' +
-      '\n' +
-      'Viewers can support their favorite broadcasters with in-app gifts, and some popular broadcasters use the app as a full-time employment. We at Pidol only profit from advertising and make sure that creators from our platform have all of the rights and benefits they deserve!\n' +
-      '\n' +
-      'Pidol primarily focuses on live streaming and includes official broadcasts of online events. In addition, Pidol also has live broadcasts for a variety of other genres, including education, esports and real live streams.',
+    position: 'Front-End',
+    description: 'Nền tảng short clip và live stream cho phép người dùng có thể đăng tải ( video, image, audio ) và thực hiện live stream trên hệ thống',
     gallery: [
       '/assets/images/gallery/pidol.png',
     ]
@@ -72,15 +78,30 @@ export const GALLERY_IMAGES: GalleryType[] = [
   {
     name: 'Tinhte Clone',
     bgCover: '/assets/images/gallery/tinhte.jpg',
+    technology: 'NextJS, Laravel',
     client: 'Tinhte',
     projectLink: '',
     github: 'https://gitlab.com/taitranhuu1908/agile-blog',
-    description: '',
+    description: 'Tinh Tế là một diễn đàn trực tuyến, được coi là một trong những diễn đàn về công nghệ thông tin lớn nhất Việt Nam',
+    position: 'Front-End',
     gallery: [
       '/assets/images/tinhte/1.png',
       '/assets/images/tinhte/2.png',
       '/assets/images/tinhte/3.png',
       '/assets/images/tinhte/4.png',
+    ]
+  },
+  {
+    name: 'Nha Khoa Hoang Kim',
+    bgCover: '/assets/images/gallery/nhakhoa.png',
+    technology: 'NextJS, NodeJS ( Strapi )',
+    client: 'Tinhte',
+    projectLink: 'https://nhakhoahoangkim.vn/',
+    github: '',
+    description: 'Website giới thiệu về nha khoa cho doanh nghiệp',
+    position: 'Front-End',
+    gallery: [
+      '/assets/images/gallery/nhakhoa.png',
     ]
   },
 ];

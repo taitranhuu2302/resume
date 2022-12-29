@@ -8,9 +8,12 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Skill from './components/Skill';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Portfolio from './components/Portfolio';
+import ModalLanguage from './components/ModalLanguage';
+import { useEffectOnce } from 'usehooks-ts';
+import { IS_CHOOSE_LANGUAGE } from './constants';
 
 const App = () => {
   const homeRef = useRef<HTMLDivElement | null>(null);
@@ -23,6 +26,12 @@ const App = () => {
   const {ref: refSkillView, inView: skillView} = useInView();
   const {ref: refContactView, inView: contactView} = useInView();
   const {ref: refPortfolioView, inView: portfolioView} = useInView();
+  const [openChooseLanguage, setOpenChooseLanguage] = useState(false);
+  
+  useEffectOnce(() => {
+    const isChoose = localStorage.getItem(IS_CHOOSE_LANGUAGE);
+    !isChoose && setOpenChooseLanguage(true);
+  });
   
   const scrollTo = (type: NavigationType) => {
     switch (type) {
@@ -57,6 +66,7 @@ const App = () => {
   
   return (
     <div id="App">
+      <ModalLanguage open={openChooseLanguage} onClose={() => setOpenChooseLanguage(false)} />
       <Navbar activeTab={activeTab} scrollTo={scrollTo}/>
       <Home ref={(c) => {
         homeRef.current = c;

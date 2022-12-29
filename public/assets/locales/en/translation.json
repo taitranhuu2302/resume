@@ -22,5 +22,8 @@
   "download": "Download",
   "project_info": "Project Information",
   "description": "Description",
-  "notify_change_language": "Language changed"
+  "notify_change_language": "Language changed",
+  "select_language": "Please select language",
+  "choose_language": "Choose Language",
+  "submit": "OK"
 }
