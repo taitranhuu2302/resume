@@ -25,5 +25,6 @@
   "notify_change_language": "Language changed",
   "select_language": "Please select language",
   "choose_language": "Choose Language",
-  "submit": "OK"
+  "submit": "OK",
+  "select": "Select"
 }

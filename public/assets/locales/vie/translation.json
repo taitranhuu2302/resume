@@ -25,5 +25,6 @@
   "notify_change_language": "Thay đổi ngôn ngữ thành công",
   "select_language": "Vui lòng chọn ngôn ngữ",
   "choose_language": "Chọn ngôn ngữ",
-  "submit": "Xác nhận"
+  "submit": "Xác nhận",
+  "select": "Chọn"
 }
