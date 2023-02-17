@@ -18,7 +18,7 @@ const Footer = () => {
           <FaFacebookF size={22} className={"text-white"} />
         </a>
         <a
-          href="https://github.com/taitranhuu1908"
+          href="https://github.com/taitranhuu2302"
           target={"_blank"}
           rel="noreferrer"
           className="p-2 rounded-full bg-primary hover:bg-opacity-90"

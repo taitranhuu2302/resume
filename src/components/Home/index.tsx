@@ -29,7 +29,7 @@ const Home = React.forwardRef<HTMLDivElement>((props, ref) => {
             <a href="https://www.facebook.com/tai.tranhuu2002" target={'_blank'} rel="noreferrer">
               <FaFacebookF size={22} className={'hover:text-primary text-secondary'}/>
             </a>
-            <a href="https://github.com/taitranhuu1908" target={'_blank'} rel="noreferrer">
+            <a href="https://github.com/taitranhuu2302" target={'_blank'} rel="noreferrer">
               <FaGithub size={23} className={'hover:text-primary text-secondary'}/>
             </a>
             {/* <a href="/" target={"_blank"} rel="noreferrer">
