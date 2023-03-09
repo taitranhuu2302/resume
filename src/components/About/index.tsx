@@ -17,11 +17,7 @@ const About = React.forwardRef<HTMLDivElement>((props, ref) => {
       <div className="flex flex-col lg:flex-row gap-10">
         <AnimationOnScroll animateIn="animate__slideInLeft">
           <div className="flex lg:justify-start justify-center">
-            <img
-              src="/avatar.png"
-              alt=""
-              className="max-w-[416px] max-h-[416px] min-w-[416px] min-h-[416px] rounded"
-            />
+            <img src="/avatar.png" alt="" className="md:max-w-[416px] md:max-h-[416px] rounded" />
           </div>
         </AnimationOnScroll>
         <AnimationOnScroll animateIn="animate__slideInRight">

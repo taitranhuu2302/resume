@@ -96,7 +96,7 @@ export const GALLERY_IMAGES: GalleryType[] = [
     name: "Nha Khoa Hoang Kim",
     bgCover: "/assets/images/gallery/nhakhoa.png",
     technology: "NextJS, NodeJS ( Strapi )",
-    client: "Tinhte",
+    client: "Individual",
     projectLink: "https://nhakhoahoangkim.vn/",
     github: "",
     description: "Website giới thiệu về nha khoa cho doanh nghiệp",
