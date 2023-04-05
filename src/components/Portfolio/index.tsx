@@ -13,7 +13,7 @@ const Portfolio = React.forwardRef<HTMLDivElement>((props, ref) => {
   const [open, setOpen] = useState(false);
   const {t} = useTranslation();
   const [dataModal, setDataModal] = useState<GalleryType | null>(null);
-  const [activeTabs, setActiveTabs] = useState<ProjectType>('OUTSTANDING');
+  const [activeTabs, setActiveTabs] = useState<ProjectType>('NORMAL');
   
   return <div ref={ref} className={'container-ct'}>
     <div className="section-header">

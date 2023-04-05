@@ -2,6 +2,7 @@
   "name": "resume",
   "version": "0.1.0",
   "private": true,
+  "author": "Trần Hữu Tài",
   "dependencies": {
     "@fancyapps/ui": "^4.0.31",
     "@testing-library/jest-dom": "^5.14.1",
