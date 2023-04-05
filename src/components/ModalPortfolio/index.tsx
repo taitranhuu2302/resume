@@ -53,10 +53,10 @@ const Modal: React.FC<IModal> = ({open, onClose, data}) => {
                 <li><span className={'font-bold'}>Position</span>: {data.position}</li>
                 <li><span className={'font-bold'}>Project URL</span>:
                   <a href={data.projectLink} target={'_blank'} className={'text-blue-500 hover:underline'}
-                     rel="noreferrer">{data.projectLink}</a></li>
+                     rel="noreferrer"> {data.projectLink}</a></li>
                 <li className={'flex items-start gap-2.5'}><span className={'font-bold'}>Github:</span> {data.github ?
                   <a href={data.github} target={'_blank'} className={'text-blue-500 hover:underline'}
-                     rel="noreferrer">{data.github}</a> :
+                     rel="noreferrer">{data.github}</a>:
                   <div className={'flex items-center gap-1'}>
                     <RiGitRepositoryPrivateLine/>
                     <span className={'font-semibold'}>

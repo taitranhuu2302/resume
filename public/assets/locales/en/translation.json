@@ -26,5 +26,7 @@
   "select_language": "Please select language",
   "choose_language": "Choose Language",
   "submit": "OK",
-  "select": "Select"
+  "select": "Select",
+  "All": "All",
+  "Outstanding": "Outstanding"
 }
