@@ -33,7 +33,7 @@ export const GALLERY_IMAGES: GalleryType[] = [
     bgCover: "/assets/images/music/2.png",
     technology: "ReactJS",
     client: "Zing MP3",
-    projectLink: "https://taitranhuu2302.github.io/music-app/",
+    projectLink: "https://music.huutai.tokyo/",
     github: "https://github.com/taitranhuu2302/music-app",
     position: "Front-End",
     description: "Ứng dụng âm nhạc",
