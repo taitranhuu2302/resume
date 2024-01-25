@@ -9,7 +9,7 @@ const Home = React.forwardRef<HTMLDivElement>((props, ref) => {
     <div id={'Home'}
          ref={ref}
          style={{
-           background: 'url("/bg.jfif") center no-repeat',
+           background: `url("${process.env.PUBLIC_URL}/bg.jfif") center no-repeat`,
            backgroundSize: 'cover'
          }}
     >

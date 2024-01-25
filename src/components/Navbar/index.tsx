@@ -51,7 +51,7 @@ const Navbar: React.FC<IState> = ({ scrollTo, activeTab }) => {
         text={t("language_tools")}
       />
       <ButtonNav
-        onClick={() => (window.location.href = "/CV_Tran_Huu_Tai_Web_Developer.pdf")}
+        onClick={() => (window.location.href = `${process.env.PUBLIC_URL}/CV_Tran_Huu_Tai_Web_Developer.pdf`)}
         Icon={<AiOutlineFile className="min-w-[25px] min-h-[25px]" />}
         text={`Resume ( ${t("download")} )`}
       />

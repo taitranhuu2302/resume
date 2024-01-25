@@ -16,41 +16,41 @@ const Skill = React.forwardRef<HTMLDivElement>((props, ref) => {
         <div className="border-r">
           <h3 className="section-sub-title text-center">{t('programing_language')}</h3>
           <div className="grid grid-cols-2 justify-center px-2.5 gap-5 py-5">
-            <Icon src="/programing-language/csharp.svg"/>
-            <Icon src="/programing-language/java.svg"/>
-            <Icon src="/programing-language/js.svg"/>
-            <Icon src="/programing-language/ts.svg"/>
-            <Icon src="/programing-language/php.svg"/>
+            <Icon src={`${process.env.PUBLIC_URL}/programing-language/csharp.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/programing-language/java.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/programing-language/js.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/programing-language/ts.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/programing-language/php.svg`}/>
           </div>
         </div>
         <div className="border-r">
           <h3 className="section-sub-title text-center">Font-End</h3>
           <div className="grid grid-cols-2 justify-center px-2.5 gap-5 py-5">
-            <Icon src="/front-end/html.svg"/>
-            <Icon src="/front-end/css.svg"/>
-            <Icon src="/front-end/sass.svg"/>
-            <Icon src="/front-end/react.svg"/>
-            <Icon src="/front-end/redux.svg"/>
-            <Icon src="/front-end/tailwind.svg"/>
-            <Icon src="/front-end/nextjs.svg"/>
+            <Icon src={`${process.env.PUBLIC_URL}/front-end/html.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/front-end/css.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/front-end/sass.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/front-end/react.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/front-end/redux.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/front-end/tailwind.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/front-end/nextjs.svg`}/>
           </div>
         </div>
         <div className="border-r">
           <h3 className="section-sub-title text-center">Backend</h3>
           <div className="grid grid-cols-2 justify-center px-2.5 gap-5 py-5">
-            <Icon src="/backend/nodejs.svg"/>
-            <Icon src="/backend/express.svg"/>
-            <Icon src="/backend/laravel.svg"/>
-            <Icon src="/backend/dotnet.svg"/>
-            <Icon src="/backend/mongodb.svg"/>
-            <Icon src="/backend/sql-server.svg"/>
-            <Icon src="/backend/mysql.svg"/>
+            <Icon src={`${process.env.PUBLIC_URL}/backend/nodejs.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/backend/express.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/backend/laravel.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/backend/dotnet.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/backend/mongodb.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/backend/sql-server.svg`}/>
+            <Icon src={`${process.env.PUBLIC_URL}/backend/mysql.svg`}/>
           </div>
         </div>
         <div>
           <h3 className="section-sub-title text-center">{t('other')}</h3>
           <div className="grid grid-cols-2 justify-center px-2.5 gap-5 py-5">
-            <Icon src="/other/git.svg"/>
+            <Icon src={`${process.env.PUBLIC_URL}/other/git.svg`}/>
           </div>
         </div>
       </div>
